@@ -108,16 +108,17 @@ osg::Matrix getForwardTransformation()
 osg::Matrix getBackwardTransformation()
 {
     //Task 7 - fill in backward transformation matrix consisting of 3 individual transformation matrices (you can use inverse if it helps you).
-    osg::Vec3d tr(-2.0, 0.0, 2.0);
+    osg::Vec3d tr(2.0, 0.0, -2.0);
     osg::Matrix transl = getTranslationMatrix(tr);
 
-    osg::Vec3d sc(2.0, 2.0, 2.0);
+    osg::Vec3d sc(0.5, 0.5, 0.5);
     osg::Matrix scale = getScaleMatrix(sc);
 
-    double angleX = degreesToRadians(-135.0);
+    double angleX = degreesToRadians(135.0);
     osg::Matrix rotate = rotateAroundX(angleX);
 
 
-    osg::Matrix m = rotate * transl * scale ;
-    return m;
+    osg::Matrix m = scale * transl * rotate ;
+    auto mtr = inverze (m)
+    return mtr;
 }
